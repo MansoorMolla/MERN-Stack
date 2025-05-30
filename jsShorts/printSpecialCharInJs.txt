@@ -1,0 +1,7 @@
+// if we want to print some special characters just along in string we need to give one back slash
+
+const name1 = 'Mansoor\''; 
+console.log(name1); // Mansoor'
+
+const name2 = 'Mansoor\\'; 
+console.log(name2); // Mansoor\

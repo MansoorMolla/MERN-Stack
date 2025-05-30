@@ -1,0 +1,14 @@
+// To prevent object modification in js 
+// Object.freeze(); object have a property called freeze and we need to pass name of obect that we want to freeze
+
+const orders = {
+    no:5,
+    total:5000,
+    name: "Mansoor"
+}
+
+// Object.freeze(orders); 
+
+orders.name ="Basha" // we updating name so the object orders property name will be modified to these  
+
+console.log(orders);

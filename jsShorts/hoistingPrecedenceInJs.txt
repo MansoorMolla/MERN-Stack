@@ -1,0 +1,13 @@
+// when we create a var and a function with same name js will first check has var initialized with some value 
+// if some value is initialized then js will ignore the function logic 
+// if not initialized just declared then js will look for function
+
+
+
+// var sum = 20;
+// var sum;
+function sum(a,b){
+    console.log('Sum of and b is :',a+b);
+}
+
+sum(3,4);

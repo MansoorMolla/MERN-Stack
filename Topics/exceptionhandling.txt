@@ -1,0 +1,13 @@
+const a = 10;
+const b = 20;
+console.log('sum of a and b is :', a + b);
+console.log('sub of a and b is :', a - b);
+try {
+    console.log('mul of a and b is :', a * c);
+} catch (err) {
+    console.log('Error occured the error is :', err);
+}
+console.log('div of a and b is :', a / b);
+console.log(`If we dont write what will be may cause error using try and catch block 
+and if it cause any error next lines after error wont be executed 
+the caused error will terminate the execution of programm wont allow next lines to execute`);

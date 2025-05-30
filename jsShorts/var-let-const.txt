@@ -1,0 +1,17 @@
+// In case we try to access variable before initialization for var undefined, & for let and const we will get cannot access before initialization
+
+
+// console.log('Vlaue of a is:',a);   // Vlaue of a is: undefined
+// var a = 100;
+
+// console.log('Vlaue of b is:',b);  // Cannot access 'b' before initialization
+// let b = 100;
+
+// console.log('Vlaue of c is:',c);   // Cannot access 'c' before initialization
+// const c = 100; 
+
+
+// var a = 10;
+// let a =20;
+// const a = 30;
+// console.log(a) // get error on let a = 20; saying identifier a is alredy declared
