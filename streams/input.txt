@@ -1,0 +1,8 @@
+Node.js Piping Streams
+Piping is a mechanism where output of one stream is used as input to another stream. 
+There is no limit on piping operation.
+
+
+Node.js Chaining Streams
+Chaining stream is a mechanism of creating a chain of multiple stream operations by connecting output of one stream to another stream. 
+It is generally used with piping operation.

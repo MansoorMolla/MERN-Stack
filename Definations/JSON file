@@ -1,0 +1,3 @@
+package.json file :
+the package.json file in node.js is heart of entire application , it is basically manifest file
+that contain meta data of project

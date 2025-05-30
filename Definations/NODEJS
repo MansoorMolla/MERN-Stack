@@ -1,0 +1,11 @@
+===========================================================================================================
+
+1)WHAT IS NODE.JS?
+
+> Nodejs is asyncronous , event driven,non blocking javascript runtime environment  
+> framework for writting server side javascript application
+> use google javascript v8 engine to execute code
+> its open source and cross platform
+> by using node js can do many backend functionalities like creating REST API, website and web app design 
+> by using node js can create n/w and highly scalable application
+

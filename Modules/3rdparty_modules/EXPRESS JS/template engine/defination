@@ -1,0 +1,16 @@
+template engine :
+
+template engine help us to create an html template with minimal code 
+also it can inject data into html template at client side and produce final html 
+
+
+
+views :
+
+views is the directory where the template files are located 
+
+
+
+popular template engines are :
+
+pug, mustache,ejs,handlebars

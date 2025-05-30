@@ -1,0 +1,11 @@
+REPL : READ PRINT EVAL LOOP
+
+is a built in interactive shell that allows you to enter commands and expressions , which are then evaluated 
+and the results are printed to the console
+
+REPL allows you to quickly execute small peice of js code , without needing to create a full pledged nodejs app
+
+REPL used particularly to test behaviour of specific function , module or code snippet or quickly prototype idea
+
+to launch repl just open a terminal or command prompt and type command 'node' followed by enter 
+these will launch nodejs repl and to exit simple type .exit or press ctrl+c twice 

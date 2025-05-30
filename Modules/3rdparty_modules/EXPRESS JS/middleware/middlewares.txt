@@ -1,0 +1,47 @@
+/*
+Middleware :
+
+Middleware functions are functions that have access to the request object (req), the response object (res), and the next
+middleware function in the application’s request-response cycle. 
+These functions are used to modify req and res objects for tasks like parsing request bodies,
+adding response headers, etc.
+
+The next() function in the express is responsible for calling the next middleware function if there is one.
+
+Advantages of using middleware:
+
+Middleware can process request objects multiple times before the server works for that request.
+Middleware can be used to add logging and authentication functionality.
+Middleware improves client-side rendering performance.
+Middleware is used for setting some specific HTTP headers.
+Middleware helps for Optimization and better performance.
+
+Middleware Syntax: The basic syntax for the middleware functions are as follows –
+
+app.get(path, (req, res, next) => {}, (req, res) => {})
+
+The middle part (req,res,next)=>{} is the middleware function. 
+Here we generally perform the actions required before the user is allowed to view the webpage 
+or call the data and many other functions. 
+So let us create our own middleware and see its uses.
+
+If the current middleware function does not end the request-response cycle, it must call next() to pass control to the next middleware function. Otherwise, the request will be left hanging.
+
+An Express application can use the following types of middleware:
+
+Application-level middleware
+Router-level middleware
+Error-handling middleware
+Built-in middleware
+Third-party middleware
+
+for more on these follow link 
+https://expressjs.com/en/guide/using-middleware.html
+
+
+
+
+
+
+
+*/
