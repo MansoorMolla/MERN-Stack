@@ -1,0 +1,26 @@
+Sure, let's discuss the differences between **React Redux** and **Redux Toolkit**:
+
+1. **Boilerplate Code**: Redux requires a significant amount of boilerplate code to set up a store, reducers, and actions¹. Redux Toolkit simplifies and modernizes Redux development with minimal boilerplate code¹.
+
+2. **Immutability**: In Redux, you need to make sure your reducers are pure functions and don't mutate the state directly¹. Redux Toolkit allows you to write mutable state updates in reducers, which are converted to immutable state updates behind the scenes using a library called Immer¹.
+
+3. **Action Creation**: In Redux, you need to define action types and action creators separately¹. Redux Toolkit auto-generates actions from the reducers themselves using Autodux¹.
+
+4. **Middleware**: Redux Toolkit comes with Redux Thunk middleware configured out-of-the-box¹.
+
+5. **Developer Experience**: Redux Toolkit is more beginner-friendly and provides a streamlined development experience⁴.
+
+6. **Performance**: Redux Toolkit is designed to provide better performance out of the box¹.
+
+In summary, while Redux and Redux Toolkit are both valuable tools for state management in React applications, Redux Toolkit offers a more beginner-friendly and streamlined development experience⁴. The choice between them should be guided by your project’s specific requirements and your familiarity with Redux⁴.
+
+I hope this helps! Let me know if you have any other questions. 😊
+
+Source: Conversation with Copilot, 11/06/2024
+(1) Differences Between Redux and Redux Toolkit and Why ... - Shawn D'silva. https://www.shawndsilva.com/blog/web-development/differences-between-redux-and-redux-toolkit-and-why-should-you-upgrade.
+(2) Redux vs. Redux Toolkit: Making State Management Easier for React .... https://medium.com/@hk810773/redux-vs-redux-toolkit-making-state-management-easier-for-react-developers-47c95684c0da.
+(3) How to Use Redux and Redux Toolkit – Tutorial for Beginners. https://www.freecodecamp.org/news/redux-and-redux-toolkit-for-beginners/.
+(4) Redux vs. Redux Toolkit: Making State Management Easier for React .... https://bing.com/search?q=React+Redux+vs+Redux+Toolkit.
+(5) what is main difference between redux and redux toolkit, is saga .... https://stackoverflow.com/questions/70478224/what-is-main-difference-between-redux-and-redux-toolkit-is-saga-required-in-red.
+(6) The difference between react-redux and redux-toolkit?. https://stackoverflow.com/questions/72995124/the-difference-between-react-redux-and-redux-toolkit.
+(7) en.wikipedia.org. https://en.wikipedia.org/wiki/Redux_(JavaScript_library).

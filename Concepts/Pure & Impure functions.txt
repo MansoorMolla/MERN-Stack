@@ -1,0 +1,38 @@
+The difference between **pure** and **impure functions** is primarily based on two main aspects: **side effects** and **output predictability**.
+
+**Pure Functions:**
+- **No Side Effects**: A pure function does not cause any observable changes outside its scope, meaning it doesn't alter any external state, variables, or data.
+- **Deterministic**: It always returns the same output when given the same input, regardless of external factors.
+- **Independent**: Pure functions do not rely on data outside of their parameters to produce a result.
+
+Here's an example of a pure function in JavaScript:
+
+```javascript
+function add(a, b) {
+  return a + b;
+}
+```
+
+**Impure Functions:**
+- **Side Effects**: An impure function may cause side effects, such as modifying a global variable, changing the state of an object, or performing I/O operations.
+- **Non-Deterministic**: The output might vary even with the same inputs because it can depend on external states or data.
+- **Dependent**: They may rely on or alter the state of variables outside their scope.
+
+An example of an impure function would be:
+
+```javascript
+let count = 0;
+function incrementCount() {
+  count += 1;
+}
+```
+
+In this case, `incrementCount` is impure because it modifies the external variable `count`.
+
+In summary, pure functions are generally easier to test, debug, and maintain due to their predictability and lack of side effects. Impure functions, while necessary for certain operations, can introduce complexity and unpredictability into the code¹².
+
+Source: Conversation with Copilot, 30/5/2024
+(1) Pure vs Impure Functions in Functional Programming – What's the Difference?. https://www.freecodecamp.org/news/pure-function-vs-impure-function/.
+(2) Functional Programming: Pure and Impure Functions. https://www.geeksforgeeks.org/functional-programming-pure-and-impure-functions/.
+(3) Pure vs Impure Functions in JavaScript: A Complete Guide. https://medium.com/@Evelyn.Taylor/pure-vs-impure-functions-in-javascript-a-complete-guide-6aef7ca91192.
+(4) Understanding Pure and Impure Functions in JavaScript: A Key ... - Medium. https://medium.com/@rahuljaim/understanding-pure-and-impure-functions-in-javascript-a-key-to-efficient-code-96859f379f6e.

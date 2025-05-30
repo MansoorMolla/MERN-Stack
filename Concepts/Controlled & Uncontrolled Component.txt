@@ -1,0 +1,52 @@
+In React, **controlled components** are those where the form data is handled by the state within the component. This means that every state mutation will have an associated handler function. For example, an `<input>` form element will update the state via `onChange` event:
+
+```jsx
+function Form() {
+  const [value, setValue] = useState("");
+
+  function handleChange(event) {
+    setValue(event.target.value);
+  }
+
+  return (
+    <input type="text" value={value} onChange={handleChange} />
+  );
+}
+```
+
+In this case, the React component is the single source of truth for the form data, and the input's value is always driven by the React state.
+
+On the other hand, **uncontrolled components** work more like traditional HTML form elements. The form data is handled by the DOM itself, not by the React component state. To access the form values, you would use a `ref` to directly interact with the DOM nodes:
+
+```jsx
+function Form() {
+  const inputRef = useRef();
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    alert('A name was submitted: ' + inputRef.current.value);
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        Name:
+        <input type="text" ref={inputRef} />
+      </label>
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+```
+
+Here, the form is not controlled by React state, and the input's value can be retrieved using the ref when needed, such as during form submission.
+
+The choice between controlled and uncontrolled components depends on the specific needs of your application and your preference for working with either React state or direct DOM manipulation¹².
+
+Source: Conversation with Copilot, 30/5/2024
+(1) Controlled vs. uncontrolled components in React - LogRocket Blog. https://blog.logrocket.com/controlled-vs-uncontrolled-components-in-react/.
+(2) Controlled vs Uncontrolled Components in ReactJS - GeeksforGeeks. https://www.geeksforgeeks.org/controlled-vs-uncontrolled-components-in-reactjs/.
+(3) Understanding Controlled vs Uncontrolled Components In React. https://claritydev.net/blog/react-controlled-vs-uncontrolled-components.
+(4) Understanding React: The Difference Between Controlled and Uncontrolled .... https://dev.to/javanshir_ab/understanding-react-the-difference-between-controlled-and-uncontrolled-components-1m09.
+(5) Uncontrolled Components – React - reactjs.org. https://legacy.reactjs.org/docs/uncontrolled-components.html.
+(6) en.wikipedia.org. https://en.wikipedia.org/wiki/React_(JavaScript_library).

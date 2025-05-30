@@ -1,0 +1,22 @@
+Sure, let's discuss some of the main limitations of React and how other libraries or frameworks address these issues:
+
+1. **Challenging State Management**: Managing state in large-scale applications with deeply nested components can be complex in React¹. However, **Vue.js** uses a more straightforward state management system with its Vuex library, which provides a centralized store for all components in an application¹.
+
+2. **Steep Learning Curve**: React’s learning curve can be steep, particularly for those transitioning from traditional web development practices¹. On the other hand, **Vue.js** is known for its simplicity and ease of use, making it a good choice for beginners¹.
+
+3. **React is a Library, Not a Framework**: React only covers the UI components, nothing else². This requires developers to integrate other tools for tasks like state management and routing, which can lead to architectural challenges². In contrast, **Angular** is a full-fledged framework that provides a complete tooling set out-of-the-box².
+
+4. **JSX Syntax**: React uses JSX, a syntax extension to JavaScript². This can be a barrier for developers who are not familiar with it². **Vue.js**, on the other hand, uses an HTML-based template syntax, which can be more familiar to developers coming from an HTML background².
+
+5. **Does Not Support SEO**: React, by design, was not built with SEO in mind². Therefore, Google does not automatically index apps created with the library². However, **Next.js**, a framework based on React, supports server-side rendering, which improves SEO².
+
+6. **Lack of Updated Documentation**: React is developing very fast, which quickly outdates the documentation². In contrast, **Angular** has a slower, more predictable release cycle, which allows its documentation to stay up-to-date².
+
+7. **Large Client-Side Bundles**: React applications can result in large client-side bundles, affecting the load time and performance of the application². However, **Svelte** compiles your code to tiny, framework-less vanilla JS, resulting in smaller bundle sizes and faster load times².
+
+I hope this helps! Let me know if you have any other questions. 😊
+
+Source: Conversation with Copilot, 11/06/2024
+(1) Top 10 Cons & Disadvantages of React or ReactJS. https://projectmanagers.net/top-10-cons-disadvantages-of-react-or-reactjs/.
+(2) 5 Big Limitations of React - MUO. https://www.makeuseof.com/react-limitations/.
+(3) en.wikipedia.org. https://en.wikipedia.org/wiki/React_(JavaScript_library).

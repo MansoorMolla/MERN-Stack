@@ -1,0 +1,41 @@
+if we want to pass data from parent component to child component, suppose imagine we have parent component
+and child1, child2, child3, child4 component 
+and if we want to pass data from paraent component to child4 component we need to use prop drilling concept 
+which is passing data through all component that is from parent to child1, child2, child3, then child4
+
+but to avoid these nested passing and prop drilling we have a concept of useContext or context api
+
+in these we no need to pass data through all component suppose if we want to pass data from parent to child4
+then we can directly pass from parent to child4 no need to pass through all children 
+
+
+steps to implement these 
+
+1 we have a method createContext() need to import it from react and it will return a object
+write these outside component beacuse we need to export it 
+
+export const context = useContext();
+
+2 and the returned object context have a method inside it that is Provider and that passing has to be written inside it 
+and it has default prop value that is to pass data has to given inside value 
+
+<context.Provider value={anything that you want to pass}> <Home /> </ context.Provider>
+
+3 import these exported context in which child only you want to use these data, and main thing we have main method or hook
+useContext() import these and inside these method pass that returned object name
+
+useContext(context) and these method will return the data which is passed to it so assign these to some varaible 
+
+const data = useContext(context);
+
+
+passes data through the component tree without prop drilling
+useful for global or shared state that multiple component needed
+
+
+const value = useContext(MyContext);
+
+MyContext: the react context object created with React.createContext
+
+
+use the link for better understanding  https://www.freecodecamp.org/news/context-api-in-react/

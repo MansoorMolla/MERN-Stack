@@ -1,0 +1,6 @@
+Custom Hooks in React are JavaScript functions that start with ‘use’ and contain reusable logic1. They allow for reusable logic in functional components, making it possible to separate components and keep parts small and focused on their intended purpose2. Custom hooks also make it easier to test and understand the logic of a component, as it can be isolated and tested separately from the component itself2.
+
+Here’s a general guide to creating your own custom React hook:
+
+Naming Convention: Custom hooks should start with ‘use’, like useCustomHook3.
+Create the Hook Function: Begin by declaring a function that starts with ‘use’, for example, function useCustomHook() {}. This function is essentially a regular JavaScript function3

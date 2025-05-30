@@ -1,0 +1,46 @@
+useEffect is used to perform side effects in react components
+example: fetching data, subscriptions, dom manipulation
+run after a component renders/updates, similer to life cycle methods
+
+
+useEffect(()=>{
+    //side effect logic
+},[dependencies]); // optional dependencies array
+
+dependencies : an array of values to watch. If they change, useEffect run again
+Empty array []: runs only after initial render 
+
+
+// so if we use without second argument array for useEffect it will get execute everytime after component render
+// if we use second argument and give empty array it only execute first time render of component
+// and if use use second argument and give some state it get execute everytime that given state changes
+
+
+
+import { useEffect } from "react";
+import { useState } from "react";
+
+function UseEffectHook() {
+
+    const [initial, update] = useState(0);
+    const [counter, updateCounter] = useState(0);
+
+    useEffect(() => {
+        console.log('useEffect callback argument log Inside UseEffect');
+    }, [counter]
+    )
+    return (
+        <>
+            <h1>useEffect in react js</h1>
+            {console.log('Inside Component these get first: 1')}
+            <button onClick={() => {
+                update(initial + 1)
+            }}>Click to update</button>
+            <button onClick={() => {
+                updateCounter(counter + 1)
+            }}>Click to update Counter</button>
+        </>
+    )
+}
+
+export default UseEffectHook;

@@ -1,0 +1,34 @@
+useState manages data that changes within a component between renders 
+used for simple state values like form inputs, button visibility, etc.
+
+const [state, setState] = useState(initialState);
+
+to work with these first import these useState hook
+and all hook functions should be written inside component
+
+state : the current state value
+setState: update the state to new state 
+these state, setState we can take any variable name of our interest
+
+setState(state+1)
+
+
+import { useState } from "react";
+
+function StateInFunctionalComponent() {
+    let [initial, update] = useState(0);
+    return (
+        <>
+            <h1> State in Functional component - which dont have state so we use hook called useState</h1>
+            <h3> Counter : {initial}</h3>
+            <button onClick={() => {
+                update(++initial);
+            }}> click to Update</button>
+            <button onClick={() => {
+                update(--initial);
+            }}>click to Decrese</button>
+        </>
+    )
+}
+
+export default StateInFunctionalComponent;

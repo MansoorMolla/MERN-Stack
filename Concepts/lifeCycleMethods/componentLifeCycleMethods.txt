@@ -1,0 +1,180 @@
+/*
+React has 2 types of components that is functional and class components
+both types has 3 phases, that is 1.Mounting, 2.Updating, 3.Unmounting
+
+class components have some methods in each phase that is called life cycle methods
+if we want these methods in functional components react provide hooks to perform similer actions
+
+
+Mounting Phase : when a component rendered first time then mounting life cycle methods called as below
+
+constructor() : we use these method to define/initialize state(this.state)
+for example if we have simple value and if we update that value and that value will be updated 
+but the updated value will not reflect on browser and if we want that to reflect 
+these render function need to be called that will be done when component state changes/parent component state changes
+so to initialize /state we use these constructor, so whenever the state of component changes react automatically rerender the component
+also if we want to access value in class component or any class in ooop then we must access it by this.value
+
+constructor() method is called only once , even state changes it doesnt get called where as the getDerivedStateFromProp
+will called first time and also when state changes then also it gets called, to check it do add logs
+
+
+getDerivedStateFromProp(prop,state): if we want to compare parent component prop, current component state and perform some 
+action we use these
+
+static getDerivedStateFromProp(prop,state){
+    return(
+
+    )
+}
+
+
+
+render() : output only be visible in browser after these methods executes
+
+componentDidMount() : after the component completely displayed in dom, then it will fixed in browser , mean after the
+jsx completely appered in browser and then if we want to perform some action we use these
+example: make api call and get data, to add event listener to component
+similer thing can be archived in functional component by useEffect hooks
+
+componentDidMount(){
+    fetch('http://fakestoreapi.com/product/1')
+    .then(json => {
+        this.setState({...this.state, product})
+    })
+}
+
+
+Updating Phase : once the component rendered first time and further any time component state changes
+then it will be in Updating phase
+
+when a component re-renders then Updating life cycle methods called as below
+
+getDerivedStateFromProp() : if we want to compare parent component prop, current component state and perform some 
+action we use these
+
+shouldComponentUpdate() : we can decide should we update/render the component or not , if not written directly rendered
+if we want not to render again we can use these method and give false
+
+render() :
+
+getSnapshotBeforeUpdate() : component state has changed and updated in browser and if we want previous 
+state data we use these
+
+componentDidUpdate() : once the component apperead in browser not the first time but after first time update and if 
+we want to perform some action we use these
+
+
+
+
+
+UnMounting Phase() : 
+
+when a component removed from DOM then unmounting life cycle methods called
+
+and if we want some action/task to be performed before these component removed from DOM then we
+use componentWillMount() method
+
+after these method excuted then only the component will be removed from DOM
+
+example: remove event listener, clear timers, used to clean up resources
+
+
+
+
+
+
+
+
+
+1. **componentDidMount**: This method is called once the component is inserted into the tree. It's commonly used for network requests, subscriptions, or any other operations that need to happen once and require a DOM.
+
+    Here's a simple example in a class component:
+    ```jsx
+    class Example extends React.Component {
+        componentDidMount() {
+            console.log('Component mounted');
+        }
+        render() {
+            return <div>Hello World</div>;
+        }
+    }
+    ```
+    The equivalent in a functional component using hooks would be `useEffect` with an empty dependency array:
+
+    ```jsx
+    function Example() {
+        React.useEffect(() => {
+            console.log('Component mounted');
+        }, []); // Empty array means this effect runs once on mount
+
+        return <div>Hello World</div>;
+    }
+    ```
+
+2. **componentDidUpdate**: This method is called after the component is updated in the DOM. It's used for operations that need to happen after an update and that can't happen on the initial render.
+
+    Here's a simple example in a class component:
+    ```jsx
+    class Example extends React.Component {
+        componentDidUpdate() {
+            console.log('Component updated');
+        }
+        render() {
+            return <div>{this.props.message}</div>;
+        }
+    }
+    ```
+    The equivalent in a functional component using hooks would be `useEffect` without an empty dependency array:
+
+    ```jsx
+    function Example({ message }) {
+        React.useEffect(() => {
+            console.log('Component updated');
+        }); // No array means this effect runs on every update
+
+        return <div>{message}</div>;
+    }
+    ```
+
+3. **componentWillUnmount**: This method is called before the component is removed from the tree. It's used for cleanup purposes, like invalidating timers, canceling network requests, or cleaning up any subscriptions that were created in `componentDidMount()`.
+
+    Here's a simple example in a class component:
+    ```jsx
+    class Example extends React.Component {
+        componentWillUnmount() {
+            console.log('Component will unmount');
+        }
+        render() {
+            return <div>Goodbye World</div>;
+        }
+    }
+    ```
+    The equivalent in a functional component using hooks would be `useEffect` with a cleanup function:
+
+    ```jsx
+    function Example() {
+        React.useEffect(() => {
+            return () => {
+                console.log('Component will unmount');
+            };
+        }, []); // Empty array means this effect runs once on mount and the cleanup runs on unmount
+
+        return <div>Goodbye World</div>;
+    }
+    ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

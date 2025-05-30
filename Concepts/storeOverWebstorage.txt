@@ -1,0 +1,26 @@
+Yes, you're correct that Redux uses a store to manage application state. The choice between using Redux store and Web Storage (local or session storage) depends on the specific needs of your application. Here's why we might prefer Redux store over Web Storage:
+
+1. **Data Structure**: Redux store allows you to work with more complex data structures. Web Storage only supports strings, so you need to serialize and deserialize your data when storing and retrieving it.
+
+2. **Performance**: Reading and writing data with Web Storage is synchronous, which means it can block the main thread if you're working with large amounts of data. Redux actions are dispatched asynchronously, so they don't have this problem.
+
+3. **Data Lifespan**: Data in Redux store is wiped out when the page is refreshed, which is not the case with Web Storage. However, you can use middleware like `redux-persist` to persist your Redux state across page reloads.
+
+4. **Middleware and DevTools**: Redux provides middleware and DevTools for managing side effects and debugging your application. Web Storage doesn't have built-in support for these features.
+
+5. **Data Flow**: Redux enforces unidirectional data flow, which makes your application's data flow easier to understand. With Web Storage, it's up to you to ensure that your data flow makes sense.
+
+6. **Subscriptions**: Redux allows components to subscribe to updates to the data they're interested in. With Web Storage, you would need to implement this feature yourself.
+
+In summary, while Web Storage can be useful for persisting small amounts of data across sessions, Redux store provides a more robust solution for managing complex application state. I hope this helps! Let me know if you have any other questions. 😊
+
+
+Yes, you're correct. Local and session storage in the browser are essentially key-value stores that only allow strings as values. If you want to store more complex data structures like objects or arrays, you would need to serialize them into a string format (like JSON) before storing, and then parse them back into their original format when retrieving.
+
+As for your second question, in a typical Redux setup, when you update the state in the Redux store, the changes will be reflected in the UI. This is because components in your application are usually connected to the Redux store and will re-render when the parts of the state they are interested in get updated.
+
+On the other hand, if you make changes in the UI (for example, a user types into a form input), these changes won't automatically update the state in the Redux store. You would need to dispatch an action to update the state in the store based on the changes in the UI.
+
+This is a key part of Redux's unidirectional data flow: the UI dispatches actions to the store, the store updates its state based on the received actions, and the UI responds to the changes in the state.
+
+I hope this helps! Let me know if you have any other questions. 😊
