@@ -1,0 +1,1 @@
+// Not all browsers support the latest JavaScript features. If you write modern JavaScript (like fetch(), Promise, or async/await), older browsers like Internet Explorer won’t understand it. A polyfill helps by manually adding the missing feature using older JavaScript that the browser understands.

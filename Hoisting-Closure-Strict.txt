@@ -1,0 +1,151 @@
+function outer(){
+    const x = 1;
+    function inner(){
+        const y = 2;
+        console.log('X and y value add is ', x+y);
+    }
+    inner()
+}
+outer()
+
+
+
+
+
+
+
+function outer(x){
+    function inner(y){
+        console.log('The sum of x and y is :',x+y);
+    }
+    return inner
+}
+
+const add = outer(5)
+const res = add(4)
+
+
+Why do we return inner? When we call outer(5), we want to get a function that adds 5 to any number. That function is inner. So we return inner from outer.
+What happens if we don’t return inner? If we don’t return inner, then outer(5) doesn’t give us anything useful. We can’t use it to add 5 to a number.
+Why don’t we return outer? outer is a function that creates other functions. If we returned outer, then outer(5) would give us a function creator, not a function that adds 5 to a number.
+What are add and res? add is the function that outer(5) gives us. It’s a function that adds 5 to any number. res is the result of calling add(4), which is 9.
+Let’s use a simpler analogy:
+
+Think of outer as a cake mold and inner as the cake. When you use the mold (outer) with some ingredient (x), it gives you a cake (inner). Now, this cake has a special property - it can add its own flavor (x) to any other flavor (y) you give it.
+
+If you don’t return the cake (inner), you won’t have anything to taste. If you return the mold (outer), you’ll just have another mold, not a cake.
+
+When you do const add = outer(5), it’s like making a cake with flavor 5. Now add is a cake that can add flavor 5 to any other flavor. When you do add(4), it’s like adding flavor 4 to your cake, so you get a cake with flavor 9 (res).
+
+
+🔐 Why Call It "Private"?
+Even though function scope already hides variables, closures allow us to preserve and control access to them.
+✅ With closures, we can decide how the outside world interacts with the variable!
+
+❌ Without Closure (Direct Modification)
+let count = 0; // Public variable
+
+function increment() {
+    count++;
+    console.log(count);
+}
+
+increment(); // 1
+increment(); // 2
+count = 100; // ❌ Anyone can change it!
+console.log(count); // 100 (No control)
+🔴 Problem: count is fully exposed and can be modified by anyone.
+
+
+
+
+✅ With Closure (Private & Controlled)
+
+function createCounter() {
+    let count = 0; // Private
+
+    return {
+        increment: function () {
+            count++;
+            console.log(count);
+        }
+    };
+}
+
+const counter = createCounter();
+counter.increment(); // 1
+counter.increment(); // 2
+counter.count = 100; // ❌ No effect (variable is private)
+console.log(counter.count); // undefined (private)
+
+✅ Now count is private, and only increment() can modify it!
+🔥 Conclusion: What Closures Give Us That Normal Functions Don't?
+Normal function variables disappear after execution.
+
+Closures keep variables in memory (they stay "alive").
+
+Closures allow controlled access (read/write but not direct modification).
+
+They provide true private variables in JavaScript (which the language itself doesn't have natively).
+
+🚀 Want to see more real-world uses of closures?
+
+
+
+let count = 0;
+function increment(){
+    count++;
+    console.log(count)
+}
+increment()
+increment()
+count = 100;
+increment()
+
+
+
+
+
+
+
+
+// 1️⃣ Hoisting with var (Only Declaration is Hoisted)
+console.log(a); // ✅ undefined (Declaration hoisted, but not the assignment)
+var a = 10;
+console.log(a); // ✅ 10
+
+// 2️⃣ Hoisting with let (Temporal Dead Zone - TDZ)
+try {
+    console.log(b); // ❌ ReferenceError: Cannot access 'b' before initialization
+} catch (error) {
+    console.log(error.message);
+}
+let b = 20;
+console.log(b); // ✅ 20
+
+// 3️⃣ Hoisting with const (Also in TDZ)
+try {
+    console.log(c); // ❌ ReferenceError: Cannot access 'c' before initialization
+} catch (error) {
+    console.log(error.message);
+}
+const c = 30;
+console.log(c); // ✅ 30
+
+// 4️⃣ Function Declaration (Fully Hoisted)
+sayHello(); // ✅ Works! Output: "Hello, World!"
+function sayHello() {
+    console.log("Hello, World!");
+}
+
+// 5️⃣ Function Expression (Not Hoisted)
+try {
+    greet(); // ❌ TypeError: greet is not a function
+} catch (error) {
+    console.log(error.message);
+}
+
+var greet = function () {
+    console.log("Hi!");
+};
+greet(); // ✅ Works now! Output: "Hi!"

@@ -1,0 +1,86 @@
+const person = {
+    greet : function(){
+        console.log('Hello !');
+    }
+};
+
+const user = {};
+user.__proto__ = person;
+user.greet()
+
+
+
+class Person{
+    constructor(name){
+        this.name = name;
+    }
+    greet(){
+        console.log('Hello',this.name);
+    }
+}
+
+const user1 = new Person('Mansoor')
+user1.greet()
+
+
+
+Yes, you're absolutely right! Let me rephrase it for better clarity:  
+
+1️⃣ **Adding properties with dot notation (`obj.property = value`)**:  
+   - The property is added **only to that specific object** (or function).  
+   - If you create a new object **from it**, the new object **won’t get that property**.  
+
+2️⃣ **Adding properties with `prototype` (`obj.prototype.property = value`)**:  
+   - The property is added **to the prototype** instead of the object itself.  
+   - Any new objects **created from that function (constructor)** will **inherit** the property.  
+   - But the property **does not exist inside the object itself**, it is accessed from the prototype chain.
+
+---
+
+### **🔹 Example: Dot Notation vs. Prototype**
+```js
+function Person(name) {
+    this.name = name;
+}
+
+// Adding a property using dot notation
+Person.age = 30;
+
+const person1 = new Person("Alice");
+
+console.log(person1.age); // ❌ undefined (not inherited)
+console.log(Person.age);  // ✅ 30 (exists only on the function itself)
+```
+🚨 **Problem**: `age` is only on `Person`, not on `person1`.
+
+---
+
+### **🔹 Using `prototype` (Shared Across Instances)**
+```js
+function Person(name) {
+    this.name = name;
+}
+
+// Adding a shared property using prototype
+Person.prototype.age = 30;
+
+const person1 = new Person("Alice");
+const person2 = new Person("Bob");
+
+console.log(person1.age); // ✅ 30 (inherited from prototype)
+console.log(person2.age); // ✅ 30 (inherited from prototype)
+```
+✅ **Now, both `person1` and `person2` inherit `age` from `Person.prototype`**.
+
+---
+
+### **🔹 Proof That `prototype` Properties Are Not Inside the Object**
+```js
+console.log(person1.hasOwnProperty("age")); // ❌ false (age is inherited, not directly inside the object)
+console.log("age" in person1); // ✅ true (exists in the prototype chain)
+```
+💡 **Takeaway**:  
+- Properties added with **dot notation** exist only on the **original object**.  
+- Properties added with **`prototype`** are **shared** and inherited by all instances.  
+
+Let me know if this clears it up! 🚀

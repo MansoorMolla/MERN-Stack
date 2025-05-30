@@ -1,0 +1,34 @@
+var a = 5;
+console.log('value of a is :',a);
+
+a = 10; // reassign possible (update) 
+console.log('value of a after reassign(update) is :',a);
+
+var a = 20; // redeclare possible
+console.log('value of a after redeclare is :',a);
+
+
+
+let a = 5;
+console.log('value of a is :',a);
+
+a = 10; // reassign possible 
+console.log('value of a after reassign(update) is :',a);
+
+let a = 20; // redeclare not possible
+// cannot redeclare block-scoped variable 'a'
+// (SyntaxError: Identifier 'a' has already been declared)
+console.log('value of a after redeclare is :',a);
+
+
+
+const a = 5;
+console.log('value of a is :',a);
+
+a = 10; // reassign not possible 
+/ TypeError: Assignment to constant variable.
+console.log('value of a after reassign(update) is :',a);
+
+const a = 20; // redeclare not possible
+// cannot redeclare block-scoped variable 'a'
+console.log('value of a after redeclare is :',a);

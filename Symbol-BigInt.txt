@@ -1,0 +1,27 @@
+
+const id1 = Symbol('id');
+const id2 = Symbol('id');
+
+console.log(id1 === id2) ; // although same description will return false
+
+// unlike Symbol(),  which always create unique symbol, we can create global symbols using Symbol.for()
+
+const sym1 = Symbol.for('shared')
+const sym2 = Symbol.for('shared')
+
+console.log(sym1 === sym2);
+
+const user = {
+    name : 'Mansoor',
+    [Symbol('id1')] : 101
+}
+console.log(user) // will logs all key value pairs
+console.log(Object.keys(user)) // wont log keys used as symbols but to get that keys also use Symbol.iterator
+
+
+
+
+const bigNum = 12232365275372537527357531753715837518n;
+console.log(bigNum);
+console.log(typeof bigNum); // bigint
+// we cannot add bigint and num will result in type error
